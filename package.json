@@ -8,6 +8,8 @@
     "build": "parcel build src/index.html"
   },
   "dependencies": {
+    "@material/react-button": "^0.15.0",
+    "@material/react-text-field": "^0.15.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "recoil": "^0.0.7"
