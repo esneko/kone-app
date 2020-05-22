@@ -3,5 +3,6 @@ dist
 .DS_Store
 .env
 .eslintcache
+.parcel-cache
 .yarn-integrity
 *.log
