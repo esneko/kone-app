@@ -4,17 +4,17 @@
   "author": "es neko <esneko@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "vite serve src",
-    "build": "vite build src --outDir dist"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "dependencies": {
     "@material/react-button": "^0.15.0",
     "@material/react-text-field": "^0.15.0",
-    "@pika/react": "^16.13.1",
-    "@pika/react-dom": "^16.13.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "recoil": "^0.0.7"
   },
   "devDependencies": {
-    "vite": "^0.16.2",
-    "vite-plugin-react": "^1.1.2"
+    "parcel": "^2.0.0-alpha.3.2"
   }
 }

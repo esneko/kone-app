@@ -1,24 +1,26 @@
-import React, { useState } from 'react'
+import * as React from 'react'
+import { RecoilRoot } from 'recoil'
 import Button from '@material/react-button'
 import { InputField } from './InputField'
+import { stateA, stateB } from '../recoil/atoms'
+import Counter from './Counter'
+import Summa from './Summa'
 import '@material/react-button/dist/button.min.css'
 import '@material/react-text-field/dist/text-field.min.css'
 import '../styles/app.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+const App = () => (
+  <RecoilRoot>
     <div className="app">
-      <button onClick={() => setCount(count + 1)}>Counter: {count}</button>
-
+      <Counter stateAtom={stateA} />
+      <Counter stateAtom={stateB} />
+      <Summa />
       <InputField initialValue={0} />
-
       <Button unelevated onClick={() => console.log('Clicked!')}>
         Summa
       </Button>
     </div>
-  )
-}
+  </RecoilRoot>
+)
 
 export default App
