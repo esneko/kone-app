@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
+import { InputField } from './InputField'
 import { summaState } from '../recoil/selectors'
 
 const Summa = () => {
