@@ -1,17 +1,24 @@
 import { selector } from 'recoil'
 import { activeIdsState, itemIdsState, itemState } from '../atoms'
 
-export const summaState = selector({
-  key: 'summaState',
-  get: ({ get }) => {
-    const summa = get(itemIdsState).reduce(
-      (count, id) => count + get(itemSelector(id)).value,
-      0
-    )
+export const summaState = (key) =>
+  selector({
+    key: 'summaState',
+    get: ({ get }) => {
+      let items
 
-    return summa
-  },
-})
+      switch (key) {
+        case 'active':
+          items = itemsSelector(key, activeIdsState)
+        default:
+          items = itemsSelector(key, itemIdsState)
+      }
+
+      const summa = items.reduce((count, item) => count + item.value, 0)
+
+      return summa
+    }
+  })
 
 export const itemSelector = (id) =>
   selector({
@@ -23,7 +30,7 @@ export const itemSelector = (id) =>
     set: ({ set }, newValue) => {
       const state = itemState(id)
       set(state, newValue)
-    },
+    }
   })
 
 export const itemsSelector = (key, state) =>
@@ -41,9 +48,5 @@ export const itemsSelector = (key, state) =>
         const id = item.id
         set(itemSelector(id), item)
       })
-    },
+    }
   })
-
-export const activeItems = itemsSelector('active', activeIdsState)
-
-export const items = itemsSelector('all', itemIdsState)
