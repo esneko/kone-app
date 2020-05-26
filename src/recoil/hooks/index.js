@@ -1,10 +1,32 @@
 import { useRecoilCallback } from 'recoil'
-import { itemIdsState } from '../atoms'
+import { activeIdsState, itemIdsState } from '../atoms'
 import { itemSelector } from '../selectors'
 
-export const useLoadItems = () =>
+// import { v4 as uuid4 } from 'uuid'
+// const generateId = () => uuid4()
+
+// export const useNewItem = () =>
+//   useRecoilCallback(async ({ getPromise }, param) => {
+//     const newId = generateId()
+//     const item = await getPromise(itemSelector(newId))
+
+//     return item
+//   })
+
+// export const useLoadItems = () =>
+//   useRecoilCallback(
+//     async ({ getPromise }, itemIds) =>
+//       await Promise.all(itemIds.map((id) => getPromise(itemSelector(id))))
+//   )
+
+export const useLoadItems = (key) =>
   useRecoilCallback(({ set }, ids) => {
-    set(itemIdsState, ids)
+    switch (key) {
+      case 'active':
+        set(activeIdsState, ids)
+      default:
+        set(itemIdsState, ids)
+    }
   })
 
 export const useUpdateItem = () =>
