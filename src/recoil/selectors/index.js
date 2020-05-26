@@ -1,10 +1,13 @@
 import { selector } from 'recoil'
-import { itemIdsState, itemState } from '../atoms'
+import { activeIdsState, itemIdsState, itemState } from '../atoms'
 
 export const summaState = selector({
   key: 'summaState',
   get: ({ get }) => {
-    const summa = get(items).reduce((acc, item) => acc + item.value, 0)
+    const summa = get(itemIdsState).reduce(
+      (count, id) => count + get(itemSelector(id)).value,
+      0
+    )
 
     return summa
   },
@@ -40,5 +43,7 @@ export const itemsSelector = (key, state) =>
       })
     },
   })
+
+export const activeItems = itemsSelector('active', activeIdsState)
 
 export const items = itemsSelector('all', itemIdsState)

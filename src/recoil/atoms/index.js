@@ -5,6 +5,11 @@ export const itemIdsState = atom({
   default: [],
 })
 
+export const activeIdsState = atom({
+  key: 'state-active-ids',
+  default: [],
+})
+
 export const itemState = (id) =>
   atom({
     key: `state-item-${id}`,
