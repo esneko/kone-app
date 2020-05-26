@@ -1,11 +1,20 @@
 import { atom } from 'recoil'
 
-export const stateA = atom({
-  key: 'countA',
-  default: 0,
+export const itemIdsState = atom({
+  key: 'state-item-ids',
+  default: [],
 })
 
-export const stateB = atom({
-  key: 'countB',
-  default: 0,
+export const activeIdsState = atom({
+  key: 'state-active-ids',
+  default: [],
 })
+
+export const itemState = (id) =>
+  atom({
+    key: `state-item-${id}`,
+    default: {
+      id,
+      value: 0
+    },
+  })
