@@ -34,7 +34,7 @@ export const itemsSelector = (key, state) =>
       if (!ids.length) {
         return []
       }
-      return ids.map((id) => get(itemSelector(id)))
+      return ids.map((id) => itemSelector(id))
     },
     set: ({ set }, newValue) => {
       newValue.forEach((item) => {
