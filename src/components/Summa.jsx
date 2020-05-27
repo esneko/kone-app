@@ -7,7 +7,7 @@ const Summa = ({ ids }) => {
   const summa = useRecoilValue(summaState)
 
   const loadItems = useLoadItems()
-  React.useEffect(() => loadItems(ids), [])
+  React.useEffect(() => loadItems(ids), [ids])
 
   return <div className="summa">Summa: {summa}</div>
 }
