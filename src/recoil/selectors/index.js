@@ -1,10 +1,12 @@
 import { selector } from 'recoil'
 import { activeIdsState, itemIdsState, itemState } from '../atoms'
 
-export const summaState = (key) =>
+export const summaSelector = (key) =>
   selector({
-    key: 'summaState',
-    get: ({ get }) => {
+    key: `summa-${key}`,
+    get: () => {
+      // TODO: normalize state
+      // e.g. create a new selector with summas mapped by key
       let items
 
       switch (key) {
