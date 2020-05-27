@@ -2,7 +2,7 @@ import * as React from 'react'
 import { RecoilRoot } from 'recoil'
 import Counter from './Counter'
 import Summa from './Summa'
-import '../styles/app.css'
+import '../styles/App.css'
 
 const App = ({ ids = [1, 2] }) => (
   <RecoilRoot>
