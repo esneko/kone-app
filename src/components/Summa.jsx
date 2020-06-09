@@ -3,15 +3,15 @@ import { useRecoilValue } from 'recoil'
 import { summaSelector } from '../recoil/selectors'
 import { useLoadItems } from '../recoil/hooks'
 
-const Summa = ({ key }) => {
-  const summa = useRecoilValue(summaSelector(key))
+const Summa = ({ type, itemIds }) => {
+  const summa = useRecoilValue(summaSelector(type))
 
-  const loadItems = useLoadItems()
-  React.useEffect(() => loadItems(ids), [])
+  const loadItems = useLoadItems(type)
+  React.useEffect(() => loadItems(itemIds), [])
 
   return (
     <div className="summa">
-      Summa ({key}): {summa}
+      Summa ({type}): {summa}
     </div>
   )
 }

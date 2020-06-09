@@ -20,12 +20,13 @@ import { itemSelector } from '../selectors'
 //   )
 
 export const useLoadItems = (key) =>
-  useRecoilCallback(({ set }, ids) => {
+  useRecoilCallback(({ set }, itemIds) => {
     switch (key) {
       case 'active':
-        set(activeIdsState, ids)
+        set(activeIdsState, itemIds)
+        break
       default:
-        set(itemIdsState, ids)
+        set(itemIdsState, itemIds)
     }
   })
 
