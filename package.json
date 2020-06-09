@@ -10,9 +10,10 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "recoil": "^0.0.7"
+    "recoil": "^0.0.8"
   },
   "devDependencies": {
+    "@types/recoil": "^0.0.0",
     "parcel": "^2.0.0-alpha.3.2"
   }
 }
