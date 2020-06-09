@@ -4,13 +4,14 @@ import Counter from './Counter'
 import Summa from './Summa'
 import '../styles/App.css'
 
-const App = ({ ids = [1, 2] }) => (
+const App = ({ initial = [1, 2, 3] }) => (
   <RecoilRoot>
     <div className="app">
-      {ids.map((id) => (
+      {initial.map((id) => (
         <Counter id={id} key={id} />
       ))}
-      <Summa ids={ids} />
+      <Summa key={'active'} />
+      <Summa key={'total'} />
     </div>
   </RecoilRoot>
 )
